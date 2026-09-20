@@ -15,19 +15,17 @@ public class CatalogController {
     @Autowired
     private CatalogItemRepository repository;
 
-    // 1. Obtener todos (GET)
     @GetMapping("/services")
     public List<CatalogItem> getAllItems() {
         return repository.findAll();
     }
 
-    // 2. Crear nuevo (POST)
     @PostMapping("/services")
     public CatalogItem createItem(@RequestBody CatalogItem item) {
         return repository.save(item);
     }
 
-    // 3. Actualizar tarifa o stock (PUT)
+  
     @PutMapping("/services/{id}")
     public ResponseEntity<CatalogItem> updateItem(@PathVariable Long id, @RequestBody CatalogItem itemDetails) {
         return repository.findById(id)
@@ -41,7 +39,7 @@ public class CatalogController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-   // 4. Eliminar un repuesto (DELETE)
+  
   @DeleteMapping("/services/{id}")
   public ResponseEntity<String> deleteItem(@PathVariable Long id) {
       if (repository.existsById(id)) {

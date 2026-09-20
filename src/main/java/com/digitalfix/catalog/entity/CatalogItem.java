@@ -19,11 +19,11 @@ public class CatalogItem {
     private Double price;       
     private Integer stock;      
 
-    // Constructor vacío exigido por JPA
+    
     public CatalogItem() {
     }
 
-    // Getters y Setters
+    
     public Long getId() {
         return id;
     }
